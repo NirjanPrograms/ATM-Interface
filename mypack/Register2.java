@@ -156,29 +156,32 @@ public class Register2 extends JFrame {
                     || acc.equals("Select")) {
                 JOptionPane.showMessageDialog(null, "Some fields are empty!");
                 flag = true;
-            }
-            aadhaar = adn.getText();
-            if (!check_Aadhaar(aadhaar, 12)) {
-                JOptionPane.showMessageDialog(null, "Invalid Aadhaar!");
-                flag = true;
-            }
-            if (term && !flag) {
-                int result = JOptionPane.showConfirmDialog(null,
-                        "Entered information's can't be change further. \n Are you sure to submit?");
-                if (result == JOptionPane.YES_OPTION) {
-                    pan = panno.getText();
-                    update_Reg2(String.valueOf(rand), religion, category, aadhaar, pan, education, acc);
-                    String card = getCardNo(16);
-                    String pin = getCardNo(4);
-                    update_Login(String.valueOf(rand), card, pin);
-                    JOptionPane.showMessageDialog(null, "Account Created Successfully. \nCard No: " + card + " \nPin: "
-                            + pin + " \n\nPlease remember Card and Pin numbers for further login");
-                    setVisible(false);
-                    JFrame frame = new Deposit(String.valueOf(rand));
-                    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                }
             } else {
-                JOptionPane.showMessageDialog(null, "Please check the checkbox.");
+                aadhaar = adn.getText();
+                if (!check_Aadhaar(aadhaar, 12)) {
+                    JOptionPane.showMessageDialog(null, "Invalid Aadhaar!");
+                    flag = true;
+                } else {
+                    if (term && !flag) {
+                        int result = JOptionPane.showConfirmDialog(null,
+                                "Entered information's can't be change further. \n Are you sure to submit?");
+                        if (result == JOptionPane.YES_OPTION) {
+                            pan = panno.getText();
+                            update_Reg2(String.valueOf(rand), religion, category, aadhaar, pan, education, acc);
+                            String card = getCardNo(16);
+                            String pin = getCardNo(4);
+                            update_Login(String.valueOf(rand), card, pin);
+                            JOptionPane.showMessageDialog(null,
+                                    "Account Created Successfully. \nCard No: " + card + " \nPin: "
+                                            + pin + " \n\nPlease remember Card and Pin numbers for further login");
+                            setVisible(false);
+                            JFrame frame = new Deposit(String.valueOf(rand));
+                            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please check the checkbox.");
+                    }
+                }
             }
         });
     }
@@ -229,8 +232,8 @@ public class Register2 extends JFrame {
         return sb.toString();
     }
 
-    // public static void main(String[] args) {
-    // JFrame frame = new Register2(1123);
-    // frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // }
+    public static void main(String[] args) {
+        JFrame frame = new Register2(1123);
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
 }

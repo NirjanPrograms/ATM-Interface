@@ -179,10 +179,10 @@ public class Register1 extends JFrame {
             state = statetxt.getText();
             pin = pinno.getText();
 
-            if (check_DOB(dofb)) {
-                if (nam.isEmpty() || !Register2.check_Aadhaar(mobile, 10) || !Register2.check_Aadhaar(pin, 6)) {
-                    JOptionPane.showMessageDialog(null, "Invalid Details!");
-                } else {
+            if (nam.isEmpty() || !Register2.check_Aadhaar(mobile, 10) || !Register2.check_Aadhaar(pin, 6)) {
+                JOptionPane.showMessageDialog(null, "Invalid Details!");
+            } else {
+                if (check_DOB(dofb)) {
                     int result = JOptionPane.showConfirmDialog(null,
                             "Entered information's can't be change further. \n Be sure all the entered information are correct");
                     if (result == JOptionPane.YES_OPTION) {
@@ -200,11 +200,10 @@ public class Register1 extends JFrame {
                             // System.out.println(ex.getMessage());
                         }
                     }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Date of Birth! \nChoose it from the button");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Invalid Date of Birth! \nChoose it from the button");
             }
-
         });
     }
 
@@ -216,16 +215,27 @@ public class Register1 extends JFrame {
     public static boolean check_DOB(String dob) {
         if (dob.length() == 11) {
             for (int i = 0; i < dob.length(); i++) {
-                if (i == 0 || i == 1 || i == 7 || i == 8 || i == 9 || i == 10) {
+                if (i == 0 || i == 7 || i == 8 || i == 9 || i == 10) {
                     if (dob.charAt(i) < '0' || dob.charAt(i) > '9')
                         return false;
-                } else if (i == 2 || i == 6) {
-                    if (dob.charAt(i) != '-')
+                } else if (i == 2) {
+                    if (dob.charAt(i) < 'A' || dob.charAt(i) > 'Z')
+                        return false;
+                } else if (i == 3 || i == 4) {
+                    if (dob.charAt(i) < 'a' || dob.charAt(i) > 'z')
+                        return false;
+                }
+            }
+            return true;
+        } else if (dob.length() == 12) {
+            for (int i = 0; i < dob.length(); i++) {
+                if (i == 0 || i == 1 || i == 8 || i == 9 || i == 10 || i == 12) {
+                    if (dob.charAt(i) < '0' || dob.charAt(i) > '9')
                         return false;
                 } else if (i == 3) {
                     if (dob.charAt(i) < 'A' || dob.charAt(i) > 'Z')
                         return false;
-                } else {
+                } else if (i == 4 || i == 5) {
                     if (dob.charAt(i) < 'a' || dob.charAt(i) > 'z')
                         return false;
                 }
