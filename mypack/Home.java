@@ -134,7 +134,6 @@ public class Home extends JFrame {
                 JOptionPane.showMessageDialog(null, "Account Balance: Rs " + amt);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
-                // System.out.println(ex.getMessage());
             }
         });
         btn7.addActionListener(e -> System.exit(0));
