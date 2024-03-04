@@ -232,8 +232,8 @@ public class Register2 extends JFrame {
         return sb.toString();
     }
 
-    public static void main(String[] args) {
-        JFrame frame = new Register2(1123);
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    }
+    // public static void main(String[] args) {
+    // JFrame frame = new Register2(1123);
+    // frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    // }
 }
