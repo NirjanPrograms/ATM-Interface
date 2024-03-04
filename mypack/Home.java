@@ -141,9 +141,9 @@ public class Home extends JFrame {
         btn7.addActionListener(e -> System.exit(0));
     }
 
-    // public static void main(String[] args) {
-    // JFrame frame = new Home("5823");
-    // frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    // }
+    public static void main(String[] args) {
+        JFrame frame = new Home("5823");
+        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
 
 }
