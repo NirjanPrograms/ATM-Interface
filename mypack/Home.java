@@ -19,7 +19,6 @@ public class Home extends JFrame {
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
-            // System.out.println(ex.getMessage());
         }
         String[] str = new String[2];
         str[0] = name;
